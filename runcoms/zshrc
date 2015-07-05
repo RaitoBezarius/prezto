@@ -5,9 +5,58 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+export MAIL="/var/spool/mail/raito"
+
+# Virtual Env Wrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Binding
+bindkey "^P" vi-up-line-or-history
+bindkey "^N" vi-down-line-or-history
+
+bindkey "^[[1~" vi-beginning-of-line   # Home
+bindkey "^[[4~" vi-end-of-line         # End
+bindkey '^[[2~' beep                   # Insert
+bindkey '^[[3~' delete-char            # Del
+bindkey '^[[5~' vi-backward-blank-word # Page Up
+bindkey '^[[6~' vi-forward-blank-word  # Page Down
+
 # Customize to your needs...
+# 256 colors.
+export TERM="rxvt-unicode-256color"
+
+# Zsh-Notify
+# TODO: Fix it for zprezto - source $HOME/dev/zsh-notify/notify.plugin.zsh
+
+# K plugin
+source $HOME/dev/k/k.sh
+
+# The Fuck Magic
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+
+# My aliases
+
+# VGA-related (whenever I do some presentation or work on another monitor)
+alias disable_main_screen="xrandr --output LVDS1 --off"
+alias disable_vga_screen="xrandr --output VGA1 --off"
+
+alias enable_vga_screen="xrandr --output VGA1"
+alias enable_main_screen="xrandr --output LVDS1 --mode 1024x600"
+
+# Workaround for irssi scrolling.
+alias irssi="TERM=screen-256color irssi"
+
+# ls replacement for k
+alias ls='k --human --no-vcs' # I can't afford to wait just to type ls...
+
+# Some user-friendly aliases for git
+alias gss='git status'
+alias gl='git log'
+alias gd='git diff'
+alias gda='git diff HEAD'
