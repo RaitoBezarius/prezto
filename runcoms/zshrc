@@ -35,7 +35,7 @@ export TERM="rxvt-unicode-256color"
 # TODO: Fix it for zprezto - source $HOME/dev/zsh-notify/notify.plugin.zsh
 
 # K plugin
-source $HOME/dev/k/k.sh
+# source $HOME/dev/k/k.sh
 
 # The Fuck Magic
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
@@ -53,7 +53,7 @@ alias enable_main_screen="xrandr --output LVDS1 --mode 1024x600"
 alias irssi="TERM=screen-256color irssi"
 
 # ls replacement for k
-alias ls='k --human --no-vcs' # I can't afford to wait just to type ls...
+# alias ls='k --human --no-vcs' # I can't afford to wait just to type ls...
 
 # Some user-friendly aliases for git
 alias gss='git status'
