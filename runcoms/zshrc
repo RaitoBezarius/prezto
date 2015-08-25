@@ -11,6 +11,10 @@ export MAIL="/var/spool/mail/raito"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 
+# Go path
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -60,3 +64,6 @@ alias gss='git status'
 alias gl='git log'
 alias gd='git diff'
 alias gda='git diff HEAD'
+
+# added by travis gem
+[ -f /home/raito/.travis/travis.sh ] && source /home/raito/.travis/travis.sh
