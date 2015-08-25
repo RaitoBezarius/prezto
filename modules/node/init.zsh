@@ -14,6 +14,10 @@ if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
 elif (( $+commands[brew] )) && [[ -d "$(brew --prefix nvm 2>/dev/null)" ]]; then
   source $(brew --prefix nvm)/nvm.sh
 
+# Load AUR nvm package into the shell session.
+elif (( $+commands[pacman] )) && pacman -Q nvm &>/dev/null; then
+  source /usr/share/nvm/init-nvm.sh
+
 # Return if requirements are not found.
 elif (( ! $+commands[node] )); then
   return 1
