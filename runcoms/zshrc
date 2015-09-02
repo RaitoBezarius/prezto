@@ -67,3 +67,6 @@ alias gda='git diff HEAD'
 
 # added by travis gem
 [ -f /home/raito/.travis/travis.sh ] && source /home/raito/.travis/travis.sh
+
+# Powerline support
+# . /usr/share/zsh/site-contrib/powerline.zsh
