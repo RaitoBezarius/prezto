@@ -47,6 +47,8 @@ alias disable_vga_screen="xrandr --output VGA1 --off"
 alias enable_vga_screen="xrandr --output VGA1"
 alias enable_main_screen="xrandr --output LVDS1 --mode 1024x600"
 
+alias t=task
+
 # Workaround for irssi scrolling.
 alias irssi="TERM=screen-256color irssi"
 
