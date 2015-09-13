@@ -5,7 +5,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export MAIL="/var/spool/mail/raito"
+export MAIL="$HOME/Mail"
 
 # Virtual Env Wrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -27,7 +27,6 @@ bindkey '^[[3~' delete-char            # Del
 bindkey '^[[5~' vi-backward-blank-word # Page Up
 bindkey '^[[6~' vi-forward-blank-word  # Page Down
 
-# Customize to your needs...
 # 256 colors.
 export TERM="rxvt-unicode-256color"
 
@@ -41,7 +40,6 @@ source $HOME/dev/k/k.sh
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 # My aliases
-
 # VGA-related (whenever I do some presentation or work on another monitor)
 alias disable_main_screen="xrandr --output LVDS1 --off"
 alias disable_vga_screen="xrandr --output VGA1 --off"
@@ -53,7 +51,7 @@ alias enable_main_screen="xrandr --output LVDS1 --mode 1024x600"
 alias irssi="TERM=screen-256color irssi"
 
 # ls replacement for k
-alias ls='k --human --no-vcs' # I can't afford to wait just to type ls...
+alias lsk='k --human --no-vcs' # I can't afford to wait just to type ls...
 
 # Some user-friendly aliases for git
 alias gss='git status'
