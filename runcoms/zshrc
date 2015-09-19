@@ -48,6 +48,10 @@ alias enable_vga_screen="xrandr --output VGA1"
 alias enable_main_screen="xrandr --output LVDS1 --mode 1024x600"
 
 alias t=task
+next() {
+	task $1 ready
+}
+
 
 # Workaround for irssi scrolling.
 alias irssi="TERM=screen-256color irssi"
@@ -60,3 +64,12 @@ alias gss='git status'
 alias gl='git log'
 alias gd='git diff'
 alias gda='git diff HEAD'
+
+# Upload images to imgur
+up_imgur() {
+	for i in "$@"; do
+		curl -\# -F "image"=@"$i" -F "key"="4907fcd89e761c6b07eeb8292d5a9b2a" imgur.com/api/upload.xml |
+		grep -Eo '<[a-z_]+>http[^<]+'|sed 's/^<.\|_./\U&/g;s/_/ /;s/<\(.*\)>/\x1B[0;34m\1:\x1B[0m /'
+	done
+}
+
