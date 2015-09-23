@@ -49,7 +49,10 @@ alias enable_main_screen="xrandr --output LVDS1 --mode 1024x600"
 
 alias t=task
 next() {
-	task $1 ready
+	task $1 limit:18 next
+}
+ready() {
+	task $1 limit:19 ready
 }
 
 
@@ -73,3 +76,8 @@ up_imgur() {
 	done
 }
 
+# Push music to my phone
+push_music_phone() {
+	adb wait-for-device
+	youtube-dl -f $1 $2 --exec "adb push {} /sdcard/Music && rm {}"
+}
